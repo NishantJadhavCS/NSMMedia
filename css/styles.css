@@ -160,67 +160,116 @@ body {
 }
 
 
-
 .team-section {
-    padding: 20px 20px;
+    padding: 80px 20px;
     background-color: #f9f5f0;
     text-align: center;
-    color: #333;
-}
-
-.team-container {
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .team-title {
-    font-size: 2.5rem;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 40px;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .team-member {
-    position: relative;
+    background-color: #dececf;
+    border-radius: 100px;
+    /* capsule shape */
+    padding: 30px 20px;
     text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    height: 280px;
+    /* base height */
+}
+
+.team-member:hover {
+    height: 440px;
+    /* expands on hover */
+}
+
+.font-effect {
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(44, 44, 44); 
+    color: transparent;
+}
+
+.team-member-capsule {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    transition: all 0.4s ease;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.team-member:hover .team-member-capsule {
+    bottom: 50px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.extra-info-text {
+    transform: translateY(30px);
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .extra-info-text {
+    transform: translateY(0);
 }
 
 .team-member-img {
-    width: 75%;
+    width: 85%;
     height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-    object-fit: cover;
-}
-
-.team-member-img:hover {
-    transform: scale(1.1);
-    /* Slight zoom effect on hover */
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-member-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 1.3rem;
+    margin: 10px 0 5px;
 }
 
 .team-member-position {
     font-size: 1rem;
-    color: #555;
+    color: #777;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+
+.team-member-info {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: all 0.4s ease;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    padding-top: 10px;
+}
+
+.team-member:hover .team-member-info {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100px;
 }
 
 
@@ -246,6 +295,7 @@ body {
     line-height: 1.8;
     font-family: 'Roboto', sans-serif;
 }
+
 
 
 /* Services Section */
@@ -287,4 +337,41 @@ body {
     font-size: 1rem;
     color: #555;
     line-height: 1.5;
+}
+
+.hero-button {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    background-color: #45324e;
+    color: white;
+    border-radius: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.hero-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent paint effect */
+    border-radius: 50px;
+    transform: translateY(100%); /* Initially hides the color fill */
+    transition: transform 0.3s ease-in-out;
+    z-index: -1; /* Ensure it stays behind the button text */
+}
+
+.hero-button:hover::after {
+    transform: translateY(0); /* Fills the button on hover */
+}
+
+.hero-button:hover {
+    transform: scale(1.05); /* Optional: Slightly scale the button on hover */
 }
