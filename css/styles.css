@@ -496,22 +496,26 @@ body {
     }
 }
 
+.services-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #fafafa, #f0f0f5);
+}
+
 .services-title {
     text-align: center;
-    font-size: 2.5rem;
-    /* You can adjust this to 3rem or more if you want it even larger */
-    margin-bottom: 2rem;
-    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 800;
     color: #222;
+    letter-spacing: -0.5px;
 }
 
 .services-carousel {
     display: flex;
     overflow-x: auto;
-    overflow-y: hidden;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding: 1rem;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -522,33 +526,93 @@ body {
 }
 
 .service-card {
-    width: 400px;
-    height: 360px;
+    width: 340px;
+    min-height: 400px;
     flex: 0 0 auto;
     scroll-snap-align: start;
-    background: #D5CED0;
-    border: 1px solid #ddd;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #E7DBDA;
+    border-radius: 1.5rem;
     padding: 2rem;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 2px solid transparent;
 }
 
+.service-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Depth & scale on hover */
 .service-card:hover {
-    background: #DECECF;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(120deg, #45324e, #ca9b9b);
+    transition: color 0.5s ease;
+}
+
+.icon-wrapper {
+    background: #ffeaea;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #45324e;
 }
 
 .service-card h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #222;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #2b2d42;
+}
+
+.service-card .subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 0.75rem;
 }
 
 .service-card p {
-    font-size: 1.2rem;
-    color: #555;
+    font-size: 1rem;
+    color: #495057;
     line-height: 1.6;
-    margin-top: 0.75rem;
+}
+
+.service-card:hover h3 {
+    color: #f8f9fa;
+    /* almost white */
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .subtitle {
+    color: #eaeaea;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover p {
+    color: #dddddd;
+    transition: color 0.3s ease;
 }

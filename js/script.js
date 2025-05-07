@@ -3,6 +3,8 @@ function toggleMenu() {
     navMenu.classList.toggle('active');
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.querySelector('.services-carousel');
 
@@ -15,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }, { passive: false });
+
+    AOS.init({
+        duration: 600, // Animation duration
+        easing: 'ease-in-out', // Easing function for smoother transitions
+        once: true // Animation occurs once when scrolling into view
+    });
 });
