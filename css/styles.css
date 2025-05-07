@@ -495,3 +495,60 @@ body {
         transform: translateX(-50%);
     }
 }
+
+.services-title {
+    text-align: center;
+    font-size: 2.5rem;
+    /* You can adjust this to 3rem or more if you want it even larger */
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.services-carousel {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.services-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.service-card {
+    width: 400px;
+    height: 360px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: #D5CED0;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    background: #DECECF;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.service-card p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+}
