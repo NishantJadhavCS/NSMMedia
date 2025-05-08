@@ -18,6 +18,7 @@ body {
     width: 100%;
     z-index: 1000;
     height: 60px;
+    transition: top 0.3s ease;
 }
 
 
@@ -305,6 +306,55 @@ a:hover::after {
     color: #f8f9fa;
 }
 
+/* About us section */
+.about-section {
+    padding: 20px 20px;
+    background-color: #f9f5f0;
+    color: #333;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-size: 4.6rem;
+    margin-bottom: 40px;
+    color: #45324E;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    font-family: 'Roboto', sans-serif;
+}
+
+.typewriter{
+    font-weight: 900;
+}
+
+.typewriter-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #000;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
 
 .team-section {
     padding: 80px 20px;
@@ -412,28 +462,6 @@ a:hover::after {
 }
 
 
-.about-section {
-    padding: 20px 20px;
-    background-color: #f9f5f0;
-    text-align: center;
-    color: #333;
-}
-
-.about-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.about-title {
-    font-size: 3.2rem;
-    margin-bottom: 20px;
-}
-
-.about-text {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    font-family: 'Roboto', sans-serif;
-}
 
 .image-scroller {
     margin-top: 5vh;
