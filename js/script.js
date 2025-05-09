@@ -23,10 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
 
-        // Add a slight delay to avoid stacking too many scrolls
         setTimeout(() => {
             isScrolling = false;
-        }, 100); // Tune this delay for responsiveness vs. smoothness
+        }, 100);
     }, { passive: false });
 
     AOS.init({
@@ -85,4 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     typeEffect();
+
+    
 });
