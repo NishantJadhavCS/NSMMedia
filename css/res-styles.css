@@ -75,3 +75,25 @@
         padding: 1.5rem;
     }
 }
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 3rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 2.4rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+}
