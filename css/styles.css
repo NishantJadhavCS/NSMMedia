@@ -403,9 +403,9 @@ body {
     box-shadow: 0 12px 32px #45324E;
 }
 
-.team-member:hover .team-member-img {
+/* .team-member:hover .team-member-img {
     transform: rotate(10deg);
-}
+} */
 
 .team-member-capsule {
     position: absolute;
@@ -512,7 +512,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-.team-member-name {
+/* .team-member-name {
     font-size: 1.3rem;
     margin: 10px 0 5px;
     opacity: 0;
@@ -527,7 +527,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
-}
+} */
 
 .team-member:hover .team-member-name,
 .team-member:hover .team-member-position {
