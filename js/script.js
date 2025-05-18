@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let lastScrollTop = 0;
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.navbar-container');
     const scrollThreshold = 10;
 
     window.addEventListener('scroll', function () {
@@ -51,39 +51,105 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    const words = ['restaurants', 'salons', 'auto brands', 'influencers'];
+    const words = ['restaurants', 'salons', 'auto brands', 'influencers.'];
     const target = document.querySelector('.typewriter-text');
 
     let wordIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
+    let isTyping = true;
+    let sentence = '';
 
-    function typeEffect() {
+    function typeNextWord() {
         const currentWord = words[wordIndex];
-        const displayed = currentWord.substring(0, charIndex);
-        target.textContent = displayed;
 
-        if (!isDeleting && charIndex < currentWord.length) {
+        if (charIndex < currentWord.length) {
+            sentence += currentWord.charAt(charIndex);
+            target.textContent = sentence;
             charIndex++;
-            typingSpeed = 100;
-        } else if (isDeleting && charIndex > 0) {
-            charIndex--;
-            typingSpeed = 50;
+            setTimeout(typeNextWord, 100);
         } else {
-            if (!isDeleting) {
-                isDeleting = true;
-                typingSpeed = 1200; // pause before deleting
-            } else {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
+            if (wordIndex < words.length - 2) {
+                sentence += ', ';
+            } else if (wordIndex === words.length - 2) {
+                sentence += ' and ';
+            }
+
+            wordIndex++;
+            charIndex = 0;
+
+            if (wordIndex < words.length) {
+                setTimeout(typeNextWord, 400);
             }
         }
-
-        setTimeout(typeEffect, typingSpeed);
     }
 
-    typeEffect();
+    // Start the typing effect
+    typeNextWord();
+    const testimonialTrack = document.getElementById('testimonialCarousel');
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
 
-    
+    let currentIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let autoScrollInterval;
+
+    const slideWidth = () => testimonialSlides[0].offsetWidth + 32; // Assuming 2rem = 32px gap
+    const maxIndex = testimonialSlides.length - 2; // allow final pair to show
+
+    function updateTransform() {
+        testimonialTrack.style.transform = `translateX(-${currentIndex * slideWidth()}px)`;
+    }
+
+    function autoScrollStart() {
+        autoScrollInterval = setInterval(() => {
+            currentIndex = (currentIndex >= maxIndex) ? 0 : currentIndex + 1;
+            updateTransform();
+        }, 5000);
+    }
+
+    function autoScrollStop() {
+        clearInterval(autoScrollInterval);
+    }
+
+    autoScrollStart();
+
+    // --- Drag functionality ---
+    testimonialTrack.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        testimonialTrack.style.transition = 'none';
+        autoScrollStop();
+    });
+
+    testimonialTrack.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const delta = e.pageX - startX;
+
+        if (delta < -50 && currentIndex < maxIndex) {
+            currentIndex++;
+        } else if (delta > 50 && currentIndex > 0) {
+            currentIndex--;
+        }
+
+        testimonialTrack.style.transition = 'transform 0.5s ease';
+        updateTransform();
+        autoScrollStart();
+    });
+
+    testimonialTrack.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            testimonialTrack.dispatchEvent(new MouseEvent('mouseup'));
+        }
+    });
+
+    testimonialTrack.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.pageX - startX;
+        const offset = -currentIndex * slideWidth() + dx;
+        testimonialTrack.style.transform = `translateX(${offset}px)`;
+    });
+
 });

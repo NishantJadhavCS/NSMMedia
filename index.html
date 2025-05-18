@@ -26,20 +26,23 @@
     <script>
         AOS.init();
     </script>
-
-    <nav class="navbar">
-        <h1>NSm</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <div class="menu" id="navMenu">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <h1>NSm</h1>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <div class="menu" id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
 
     <div class="hero-banner">
+        <img src="images/Launch.svg" alt="Right Image" class="overlay-image right">
+
         <div class="banner-content">
             <div class="text-content">
                 <p class="subtagline">Where strategy meets storytelling</p>
@@ -53,6 +56,8 @@
             </div>
         </div>
     </div>
+
+
     <div class="image-scroller">
         <div class="scroller-track" data-aos="fade-up">
             <img src="images/audi.svg" alt="Image 1" height="80px" />
@@ -97,7 +102,7 @@
     </section>
 
     <section class="services-section">
-        <h2 class="services-title" data-aos="fade-up">OUR SERVICES</h2>
+        <h2 class="services-title" data-aos="fade-up">Our Services</h2>
         <div class="services-carousel">
             <div class="service-card" data-aos="flip-up" data-aos-delay="100">
                 <div class="icon-wrapper">
@@ -185,6 +190,37 @@
         </div>
     </section>
 
+    <section class="testimonials-section">
+        <h1>Voices of Satisfaction</h1>
+        <div class="testimonial-carousel-wrapper">
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <div class="testimonial-slide">
+                    <p class="quote">“Absolutely transformed our brand. Their storytelling is top-tier and helped us
+                        emotionally connect with our audience.”</p>
+                    <span class="author">— Alex, Creative Director</span>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">“We saw a 40% boost in engagement thanks to their personalized strategy and
+                        consistent branding support.”</p>
+                    <span class="author">— Priya, Salon Owner</span>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">“Working with them felt like unlocking a creative powerhouse. Every idea was fresh,
+                        bold, and aligned with our goals.”</p>
+                    <span class="author">— Marco, Auto Brand Manager</span>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">“The best marketing decision we’ve made in years. Their team genuinely cares about
+                        our success.”</p>
+                    <span class="author">— Renee, Influencer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
     <section class="contact-form-section">
         <h3>Get in Touch!</h3>
         <form class="footer-contact-form" action="/contact" method="POST">
@@ -211,7 +247,7 @@
         </div>
     </footer>
     <a href="#" class="back-to-top" title="Back to Top">
-    ↑
+        ↑
     </a>
 
 </body>
