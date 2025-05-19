@@ -89,7 +89,7 @@ body {
 
 .hero-banner {
     position: relative;
-    background: linear-gradient(120deg, #45324E, #73477e, #302233);
+    background: linear-gradient(135deg, #582a63 0%, #6f318a 40%, #b142e5 100%);
     color: white;
     padding: 6rem 2rem;
     display: flex;
@@ -102,10 +102,15 @@ body {
 .font-effect {
     font-family: Helvetica, sans-serif;
     font-style: italic;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(247, 247, 247);
     color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    filter:
+        drop-shadow(0 0 0.8px white) drop-shadow(0 0 5px white);
 }
+
+
+
 
 .banner-content {
     width: 100%;
@@ -116,6 +121,7 @@ body {
 
 .text-content {
     text-align: left;
+    margin-left: 60px;
 }
 
 .subtagline {
@@ -188,15 +194,28 @@ body {
 
 .overlay-image.right {
     position: absolute;
-    top: 55%;
+    top: 15%;
     right: 80px;
-    transform: translateY(-50%);
     width: 550px;
     height: auto;
     pointer-events: none;
     z-index: 1;
+    opacity: 0;
+    /* match animation start */
+    animation: slideInUpCustom 0.8s ease forwards;
 }
 
+@keyframes slideInUpCustom {
+    0% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 
 /* ----- Services Carousel Container ----- */

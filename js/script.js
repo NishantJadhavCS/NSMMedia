@@ -3,6 +3,12 @@ function toggleMenu() {
     navMenu.classList.toggle('active');
 }
 
+function redirectToWhatsApp() {
+    const phoneNumber = "918356993699";
+    const message = "Hi I want to know more about NSM Media";
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (isScrolling) return;
 
-        const scrollAmount = e.deltaY < 0 ? -20 : 20; // Smaller step for smoother feel
+        const scrollAmount = e.deltaY < 0 ? -20 : 20;
         isScrolling = true;
 
         carousel.scrollBy({
@@ -152,4 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         testimonialTrack.style.transform = `translateX(${offset}px)`;
     });
 
+    window.addEventListener('load', () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    });
 });
