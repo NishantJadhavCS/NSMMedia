@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startX = e.pageX;
         testimonialTrack.style.transition = 'none';
         autoScrollStop();
+        
     });
 
     testimonialTrack.addEventListener('mouseup', (e) => {
@@ -144,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTransform();
         autoScrollStart();
     });
+    
 
     testimonialTrack.addEventListener('mouseleave', () => {
         if (isDragging) {
@@ -157,6 +159,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = -currentIndex * slideWidth() + dx;
         testimonialTrack.style.transform = `translateX(${offset}px)`;
     });
+
+
+    testimonialTrack.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].pageX;
+        testimonialTrack.style.transition = 'none';
+        autoScrollStop();
+    }, { passive: true });
+
+    testimonialTrack.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const endX = e.changedTouches[0].pageX;
+        const delta = endX - startX;
+
+        if (delta < -50 && currentIndex < maxIndex) {
+            currentIndex++;
+        } else if (delta > 50 && currentIndex > 0) {
+            currentIndex--;
+        }
+
+        testimonialTrack.style.transition = 'transform 0.5s ease';
+        updateTransform();
+        autoScrollStart();
+    });
+
+    testimonialTrack.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const dx = e.touches[0].pageX - startX;
+        const offset = -currentIndex * slideWidth() + dx;
+        testimonialTrack.style.transform = `translateX(${offset}px)`;
+    }, { passive: true });
 
     window.addEventListener('load', () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });

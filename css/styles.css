@@ -225,14 +225,6 @@ body {
     background: linear-gradient(to bottom, #fafafa, #f0f0f5);
 }
 
-/* .services-title {
-    text-align: center;
-    font-size: 4rem;
-    margin-bottom: 3rem;
-    color: #45324E;
-    letter-spacing: -0.5px;
-} */
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
