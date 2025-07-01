@@ -1,0 +1,111 @@
+.endorsements-section {
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: linear-gradient(135deg, #1e003a, #3b0066); */
+}
+
+.section-title {
+    font-size: 2.7rem;
+    color: #f5e6ff;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(117, 56, 172, 0.8);
+}
+
+.endorsement-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.endorsement-card {
+    background: linear-gradient(120deg, #6d5074, #45324e);
+    color: #ffffff;
+    padding: 40px 40px;
+    border-radius: 16px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.5s cubic-bezier(0.25, 1.25, 0.5, 1),
+        box-shadow 0.5s ease,
+        filter 0.5s ease;
+    will-change: transform, box-shadow, filter;
+}
+
+.endorsement-card:hover {
+    transform: perspective(800px) translateZ(60px) rotateX(3deg) rotateY(3deg) scale(1.01);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(92, 20, 148, 0.6),
+        inset 0 0 12px rgba(255, 255, 255, 0.08);
+    filter: brightness(1.15);
+    animation: pulse-glow 1s ease infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px #2f0c4b;
+    }
+
+    100% {
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px #2f0c4b;
+    }
+}
+
+.avatar img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #5c2a93b5;
+    padding: 5px;
+    margin-bottom: 18px;
+    border: 2px solid #e1d4ec;
+}
+
+.endorsement-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+.role {
+    font-size: 0.95rem;
+    color: #f0f0f0;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.endorsement-card hr {
+    border: 0.5px solid #ffffff;
+    margin: 15px 0;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #c084fc;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .endorsement-card {
+        width: 90%;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+}

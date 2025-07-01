@@ -1,0 +1,172 @@
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1.5rem;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .navbar h1 {
+        font-size: 1.8rem;
+        transform: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(69, 50, 78, 0.98);
+        margin-top: 0.5rem;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu a {
+        padding: 1rem 0;
+        font-size: 1rem;
+    }
+
+    .hero-banner {
+        flex-direction: column;
+        padding: 3rem 1rem;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .banner-content {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .text-content {
+        margin-left: 0;
+    }
+
+    .subtagline {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .text-content h2 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+    }
+
+    .tagline2 {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-button {
+        padding: 12px 25px;
+        font-size: 14px;
+        border-radius: 30px;
+    }
+
+    .overlay-image.right {
+        position: static;
+        /* Remove absolute positioning */
+        width: 80%;
+        max-width: 300px;
+        margin: 60px auto 0;
+        opacity: 1;
+        /* Show image */
+        animation: none;
+    }
+
+    .scroller-track img {
+        width: 80px;
+    }
+
+    .team-section {
+        padding: 40px 15px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .team-member {
+        padding: 20px 25px;
+        height: 220px;
+        transform: scale(1);
+    }
+
+    .team-member:hover {
+        height: 380px;
+        transform: scale(1.03);
+    }
+
+    .team-member-capsule {
+        bottom: 8px;
+        padding: 8px;
+    }
+
+    .extra-info-text {
+        font-size: 15px;
+    }
+
+    .testimonial-carousel {
+        gap: 1.5rem;
+    }
+
+    .testimonial-slide {
+        flex: 0 0 100%;
+        /* Show one slide per view on mobile */
+        padding: 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .quote::before {
+        font-size: 3rem;
+        top: -15px;
+        left: 15px;
+    }
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+    .carousel-arrow {
+        display: none;
+    }
+
+    .service-card {
+        width: 280px;
+        padding: 1.5rem;
+    }
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 3rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 2.4rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+}
